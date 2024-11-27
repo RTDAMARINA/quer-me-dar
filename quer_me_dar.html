@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quer me dar?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .emoji {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+    <script>
+        let noClickCount = 0;
+        function handleNoClick() {
+            noClickCount++;
+            const button = document.querySelector('.no');
+            if (noClickCount === 1) {
+                button.style.position = 'absolute';
+                button.style.top = Math.random() * 80 + '%';
+                button.style.left = Math.random() * 80 + '%';
+            } else if (noClickCount === 2) {
+                button.style.position = 'absolute';
+                button.style.top = Math.random() * 80 + '%';
+                button.style.left = Math.random() * 80 + '%';
+            } else {
+                document.body.innerHTML = '<img src="monkey_image.jpg" alt="Macaco triste" style="max-width: 100%; height: auto;">';
+            }
+        }
+        function handleYesClick() {
+            document.body.innerHTML = '<img src="cat_image.jpg" alt="Gato feliz" style="max-width: 100%; height: auto;">';
+        }
+    </script>
+</head>
+<body>
+    <h1>Quer me dar?</h1>
+    <button class="yes" onclick="handleYesClick()">Sim</button>
+    <button class="no" onclick="handleNoClick()">Não</button>
+</body>
+</html>
